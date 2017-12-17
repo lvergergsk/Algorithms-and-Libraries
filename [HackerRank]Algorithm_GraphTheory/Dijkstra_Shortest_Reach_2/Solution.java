@@ -1,4 +1,5 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 class DijkstraGraph {
@@ -8,11 +9,9 @@ class DijkstraGraph {
 
     private int[][] edges;
     private int numOfNode;
-    private LinkedList<Integer> bfsStack;
 
     public DijkstraGraph(int numOfNode) {
         this.numOfNode = numOfNode;
-        bfsStack = new LinkedList<>();
         this.edges = new int[this.numOfNode][this.numOfNode];
         for (int f0 = 0; f0 < this.numOfNode; f0++)
             for (int f1 = 0; f1 < this.numOfNode; f1++)
@@ -45,9 +44,11 @@ class DijkstraGraph {
             }
         }
 
+        List<Integer> unvisited = new ArrayList<>();
+        for (int f0 = 0; f0 < this.numOfNode; f0++) {
+            unvisited.add(f0);
+        }
 
-        // Boolean default is false in java.
-        boolean[] visited = new boolean[this.numOfNode];
         int currentNode;
 
         // Prepare return value container
@@ -58,25 +59,27 @@ class DijkstraGraph {
 
         // set start node distance to 0,
         distance[start] = 0;
-        bfsStack.addLast(start);
 
         // for all the rest nodes
-        while (!bfsStack.isEmpty()) {
-            if (DEV_MODE && VERBOSE) {
-                for (int f2 : bfsStack) {
-                    System.out.print(f2 + " ");
+        while (!unvisited.isEmpty()) {
+            {
+                int minDist = Integer.MAX_VALUE;
+                currentNode = unvisited.get(0);
+                for (int f2 : unvisited) {
+                    if (distance[f2] < minDist) {
+                        minDist = distance[f2];
+                        currentNode = f2;
+                    }
                 }
-                System.out.println();
+                unvisited.remove((Integer) currentNode);
             }
-            currentNode = bfsStack.removeFirst();
+
+
             if (DEV_MODE) System.out.println("CURRENT NODE = " + currentNode);
             // update distance for neighbours.
             for (int f1 = 0; f1 < numOfNode; f1++) {
                 int edgeLength = edges[currentNode][f1];
-                if (edgeLength != Integer.MAX_VALUE) {
-                    if (!visited[f1]) {
-                        bfsStack.addLast(f1);
-                    }
+                if (edgeLength != Integer.MAX_VALUE && distance[currentNode] != Integer.MAX_VALUE) {
 
                     if (distance[currentNode] + edgeLength < distance[f1]) {
                         if (DEV_MODE && VERBOSE)
@@ -89,8 +92,6 @@ class DijkstraGraph {
                 }
 
             }
-            // mark current node to visited.
-            visited[currentNode] = true;
 
             if (DEV_MODE) {
                 for (int f1 : distance) {
