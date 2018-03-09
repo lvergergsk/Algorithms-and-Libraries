@@ -150,6 +150,8 @@ public class Main {
     // ...
     // ctrl+D (EOF)
 
+    private static final boolean DEV_MODE = false;
+
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
         BufferedReader in = new BufferedReader(reader);
@@ -182,7 +184,8 @@ public class Main {
             // If the solution is unique, then numOfStep is also minimum step.
             int numOfStep = 0;
             for (double d : x) if (d > 0.5) numOfStep++;
-            System.out.println("minimum Step = " + numOfStep);
+            if (DEV_MODE) System.out.println("minimum Step = " + numOfStep);
+            else System.out.println(numOfStep);
         } catch (ArithmeticException e) {
             System.out.println("There is no solution for this puzzle.");
         }
