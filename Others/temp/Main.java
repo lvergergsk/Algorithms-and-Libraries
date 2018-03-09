@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 class LightsOut {
     // Turn DEV_MODE to true to switch on verbose mode.
-    private static final boolean DEV_MODE = true;
+    private static final boolean DEV_MODE = false;
     private static final double eps = 0.001;
     private double[][] A;
     private double[] x; // this is solution.
@@ -51,13 +51,14 @@ class LightsOut {
             double sum = 0.0;
             for (int j = i + 1; j < N; j++)
                 sum += A[i][j] * solution[j];
-            if (Math.abs(A[i][i]) < eps) solution[i] = 0;
+            if (Math.abs(A[i][i]) < eps && y[i] < eps) solution[i] = 0;
+            else if (Math.abs(A[i][i]) < eps && y[i] > eps)
+                throw new ArithmeticException("No solution for this linear system.");
             else {
                 solution[i] = (y[i] - sum) / A[i][i];
                 solution[i] = (((solution[i] % 2) + 2) % 2);
             }
         }
-
 
         return solution;
     }
@@ -144,6 +145,11 @@ public class Main {
     // .OO
     // ctrl+D (EOF)
 
+    // Example Input for no solution:
+    // O..
+    // ...
+    // ctrl+D (EOF)
+
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
         BufferedReader in = new BufferedReader(reader);
@@ -160,22 +166,25 @@ public class Main {
             return;
         }
         int numOfColumns = input.get(0).length();
-        double[] y = new double[numOfRows*numOfColumns];
-        for (int i=0;i<numOfRows;i++) {
+        double[] y = new double[numOfRows * numOfColumns];
+        for (int i = 0; i < numOfRows; i++) {
             if (input.get(i).length() != numOfColumns)
                 throw new IllegalArgumentException("Input is not valid.");
-            for (int j=0;j<numOfColumns;j++){
-                if (input.get(i).charAt(j)=='O') y[i*numOfColumns+j]=1;
-                else y[i*numOfColumns+j]=0;
+            for (int j = 0; j < numOfColumns; j++) {
+                if (input.get(i).charAt(j) == 'O') y[i * numOfColumns + j] = 1;
+                else y[i * numOfColumns + j] = 0;
             }
         }
 
-        LightsOut lightsOut=new LightsOut(numOfRows,numOfColumns,y);
-        double[] x=lightsOut.solve();
-
-        // If the solution is unique, then numOfStep is also minimum step.
-        int numOfStep = 0;
-        for (double d : x) if (d > 0.5) numOfStep++;
-        System.out.println("minimum Step = " + numOfStep);
+        LightsOut lightsOut = new LightsOut(numOfRows, numOfColumns, y);
+        try {
+            double[] x = lightsOut.solve();
+            // If the solution is unique, then numOfStep is also minimum step.
+            int numOfStep = 0;
+            for (double d : x) if (d > 0.5) numOfStep++;
+            System.out.println("minimum Step = " + numOfStep);
+        } catch (ArithmeticException e) {
+            System.out.println("There is no solution for this puzzle.");
+        }
     }
 }
