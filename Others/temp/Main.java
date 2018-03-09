@@ -1,14 +1,18 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 class LightsOut {
+    // Turn DEV_MODE to true to switch on verbose mode.
     private static final boolean DEV_MODE = true;
     private static final double eps = 0.001;
     private double[][] A;
     private double[] x; // this is solution.
     private double[] y;
-    private int nSize;
-    private int mSize;
-
+    private int numOfRows;
+    private int numOfColumn;
 
 
     private double[] lSolve(double[][] A, double[] y) {
@@ -68,16 +72,16 @@ class LightsOut {
         }
     }
 
-    LightsOut(int nSize, int mSize, double[] y) {
-        this.nSize = nSize;
-        this.mSize = mSize;
+    LightsOut(int numOfRows, int numOfColumn, double[] y) {
+        this.numOfRows = numOfRows;
+        this.numOfColumn = numOfColumn;
         this.y = y;
-        if (y.length != mSize * nSize)
+        if (y.length != numOfColumn * numOfRows)
             throw new IllegalArgumentException("Size of input is not correct.");
     }
 
     private double[][] generateMatrixA() {
-        int numOfGrid = mSize * nSize;
+        int numOfGrid = numOfColumn * numOfRows;
         double[][] A = new double[numOfGrid][numOfGrid];
         for (int i = 0; i != numOfGrid; i++) {
             Integer[] inferredGrid = getInferredGrid(i);
@@ -88,16 +92,16 @@ class LightsOut {
 
     private Integer[] getInferredGrid(int gridPos) {
         ArrayList<Integer> pos = new ArrayList<>();
-        boolean onLeft = (gridPos % mSize == 0);
-        boolean onRight = (gridPos % mSize == mSize - 1);
-        boolean onTop = (gridPos < mSize);
-        boolean onBottom = (gridPos >= mSize * (nSize - 1));
+        boolean onLeft = (gridPos % numOfColumn == 0);
+        boolean onRight = (gridPos % numOfColumn == numOfColumn - 1);
+        boolean onTop = (gridPos < numOfColumn);
+        boolean onBottom = (gridPos >= numOfColumn * (numOfRows - 1));
 
         pos.add(gridPos);
         if (!onLeft) pos.add(gridPos - 1);
         if (!onRight) pos.add(gridPos + 1);
-        if (!onTop) pos.add(gridPos - mSize);
-        if (!onBottom) pos.add(gridPos + mSize);
+        if (!onTop) pos.add(gridPos - numOfColumn);
+        if (!onBottom) pos.add(gridPos + numOfColumn);
         return pos.toArray(new Integer[pos.size()]);
     }
 
@@ -134,28 +138,44 @@ class LightsOut {
 }
 
 public class Main {
+    // Example Input:
+    // .O.
+    // OO.
+    // .OO
+    // ctrl+D (EOF)
 
-    public static void main(String[] args) {
-//        InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
-//        BufferedReader in = new BufferedReader(reader);
-//        int Counter = 0;
-//
-//        ArrayList<String> board = new ArrayList<>();
-//        String line;
-//        while ((line = in.readLine()) != null) {
-//            board.add(line);
-//        }
+    public static void main(String[] args) throws IOException {
+        InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
+        BufferedReader in = new BufferedReader(reader);
 
-//
-//        double[] y = {0, 1, 0, 1, 1, 0, 0, 1, 1};
-//        LightOut lightOut = new LightOut(3, 3, y);
+        ArrayList<String> input = new ArrayList<>();
+        String line;
+        while ((line = in.readLine()) != null) {
+            input.add(line);
+        }
 
-        double[] y = {1, 1, 1, 1};
-        LightsOut lightsOut = new LightsOut(2, 2, y);
-        double[] x = lightsOut.solve();
+        int numOfRows = input.size();
+        if (numOfRows == 0) {
+            System.out.println(0);
+            return;
+        }
+        int numOfColumns = input.get(0).length();
+        double[] y = new double[numOfRows*numOfColumns];
+        for (int i=0;i<numOfRows;i++) {
+            if (input.get(i).length() != numOfColumns)
+                throw new IllegalArgumentException("Input is not valid.");
+            for (int j=0;j<numOfColumns;j++){
+                if (input.get(i).charAt(j)=='O') y[i*numOfColumns+j]=1;
+                else y[i*numOfColumns+j]=0;
+            }
+        }
 
-        int minStep = 0;
-        for (double d : x) if (d > 0.5) minStep++;
-        System.out.println("minimum Step = " + minStep);
+        LightsOut lightsOut=new LightsOut(numOfRows,numOfColumns,y);
+        double[] x=lightsOut.solve();
+
+        // If the solution is unique, then numOfStep is also minimum step.
+        int numOfStep = 0;
+        for (double d : x) if (d > 0.5) numOfStep++;
+        System.out.println("minimum Step = " + numOfStep);
     }
 }
