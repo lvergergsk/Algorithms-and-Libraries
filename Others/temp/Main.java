@@ -1,16 +1,17 @@
 import java.util.ArrayList;
 
 class LightsOut {
-    public static final boolean DEV_MODE = true;
-    public static final double eps = 0.001;
-    double[][] A;
-    double[] y;
-    int nSize, mSize;
+    private static final boolean DEV_MODE = true;
+    private static final double eps = 0.001;
+    private double[][] A;
+    private double[] x; // this is solution.
+    private double[] y;
+    private int nSize;
+    private int mSize;
 
-    double[] x;
 
 
-    public double[] lSolve(double[][] A, double[] y) {
+    private double[] lSolve(double[][] A, double[] y) {
         int N = y.length;
         for (int k = 0; k < N; k++) {
             int max = k;
@@ -28,7 +29,7 @@ class LightsOut {
 
             for (int i = k + 1; i < N; i++) {
                 double factor;
-                if (A[k][k] == 0) factor = 0;
+                if (Math.abs(A[k][k]) < eps) factor = 0;
                 else factor = A[i][k] / A[k][k];
                 y[i] -= factor * y[k];
                 y[i] %= 2;
@@ -46,7 +47,7 @@ class LightsOut {
             double sum = 0.0;
             for (int j = i + 1; j < N; j++)
                 sum += A[i][j] * solution[j];
-            if (A[i][i] < eps) solution[i] = 0;
+            if (Math.abs(A[i][i]) < eps) solution[i] = 0;
             else {
                 solution[i] = (y[i] - sum) / A[i][i];
                 solution[i] = (((solution[i] % 2) + 2) % 2);
@@ -57,7 +58,7 @@ class LightsOut {
         return solution;
     }
 
-    public void printRowEchelonForm(double[][] A, double[] B) {
+    private void printRowEchelonForm(double[][] A, double[] B) {
         int N = B.length;
         System.out.println("Row Echelon form:----------------------");
         for (int i = 0; i < N; i++) {
@@ -149,8 +150,8 @@ public class Main {
 //        double[] y = {0, 1, 0, 1, 1, 0, 0, 1, 1};
 //        LightOut lightOut = new LightOut(3, 3, y);
 
-        double[] y = {1, 1, 1, 1, 1, 1};
-        LightsOut lightsOut = new LightsOut(2, 3, y);
+        double[] y = {1, 1, 1, 1};
+        LightsOut lightsOut = new LightsOut(2, 2, y);
         double[] x = lightsOut.solve();
 
         int minStep = 0;
