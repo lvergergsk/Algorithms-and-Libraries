@@ -6,16 +6,36 @@ import java.util.ArrayList;
 
 class LightsOut {
     // Turn DEV_MODE to true to switch on verbose mode.
-    private static final boolean DEV_MODE = false;
+    private static final boolean DEV_MODE = true;
+
     private static final double eps = 0.001;
     private double[][] A;
-    private double[] x; // this is solution.
+    private ArrayList<Double[]> x; // this is solution.
     private double[] y;
     private int numOfRows;
     private int numOfColumn;
 
+    LightsOut(int numOfRows, int numOfColumn, double[] y) {
+        this.numOfRows = numOfRows;
+        this.numOfColumn = numOfColumn;
+        this.y = y;
+        if (y.length != numOfColumn * numOfRows)
+            throw new IllegalArgumentException("Size of input is not correct.");
+    }
 
-    private double[] lSolve(double[][] A, double[] y) {
+    private void permutation(Double[] perm, int pos, ArrayList<Double[]> res) {
+        if (pos == perm.length) {
+            res.add(perm.clone());
+        } else {
+            for (int i = 0; i < 2; i++) {
+                perm[pos] = new Double(i);
+                permutation(perm, pos + 1, res);
+            }
+        }
+    }
+
+    private ArrayList<Double[]> lSolve(double[][] A, double[] y) {
+
         int N = y.length;
         for (int k = 0; k < N; k++) {
             int max = k;
@@ -46,21 +66,48 @@ class LightsOut {
 
         if (DEV_MODE) printRowEchelonForm(A, y);
 
-        double[] solution = new double[N];
+        int degreeOfFreedom = 0;
         for (int i = N - 1; i >= 0; i--) {
-            double sum = 0.0;
-            for (int j = i + 1; j < N; j++)
-                sum += A[i][j] * solution[j];
-            if (Math.abs(A[i][i]) < eps && y[i] < eps) solution[i] = 0;
-            else if (Math.abs(A[i][i]) < eps && y[i] > eps)
+            if (Math.abs(A[i][i]) < eps && y[i] < eps) {
+                degreeOfFreedom++;
+            } else if (Math.abs(A[i][i]) < eps && y[i] > eps) {
                 throw new ArithmeticException("No solution for this linear system.");
-            else {
-                solution[i] = (y[i] - sum) / A[i][i];
-                solution[i] = (((solution[i] % 2) + 2) % 2);
             }
         }
 
-        return solution;
+        ArrayList<Double[]> solutions = new ArrayList<>();
+
+        if (degreeOfFreedom == 0) {
+            solutions.add(new Double[N]);
+        } else permutation(new Double[N], N - degreeOfFreedom, solutions);
+
+        if (DEV_MODE) {
+            System.out.println("Bases for x-------------------");
+            for (Double[] ds : solutions) {
+                for (Double d : ds) {
+                    System.out.print(d + " ");
+                }
+                System.out.println();
+            }
+        }
+
+        for (Double[] solution : solutions) {
+            double[][] Atemp = A;
+            double[] ytemp = y;
+            for (int i = N - 1 - degreeOfFreedom; i >= 0; i--) {
+                double sum = 0.0;
+                for (int j = i + 1; j < N; j++)
+                    sum += Atemp[i][j] * solution[j];
+                if (Math.abs(Atemp[i][i]) < eps && ytemp[i] < eps) solution[i] = new Double(0);
+                else {
+                    solution[i] = (ytemp[i] - sum) / Atemp[i][i];
+                    solution[i] = (((solution[i] % 2) + 2) % 2);
+                }
+            }
+
+        }
+
+        return solutions;
     }
 
     private void printRowEchelonForm(double[][] A, double[] B) {
@@ -71,14 +118,6 @@ class LightsOut {
                 System.out.printf("%.3f ", A[i][j]);
             System.out.printf("| %.3f\n", B[i]);
         }
-    }
-
-    LightsOut(int numOfRows, int numOfColumn, double[] y) {
-        this.numOfRows = numOfRows;
-        this.numOfColumn = numOfColumn;
-        this.y = y;
-        if (y.length != numOfColumn * numOfRows)
-            throw new IllegalArgumentException("Size of input is not correct.");
     }
 
     private double[][] generateMatrixA() {
@@ -106,7 +145,7 @@ class LightsOut {
         return pos.toArray(new Integer[pos.size()]);
     }
 
-    double[] solve() {
+    ArrayList<Double[]> solve() {
         this.A = generateMatrixA();
 
         if (DEV_MODE) {
@@ -129,9 +168,13 @@ class LightsOut {
 
         this.x = lSolve(A, y);
         if (DEV_MODE) {
-            System.out.println("x:-------------------------------");
-            for (double d : x) {
-                System.out.println(d);
+            for (int i = 0; i < x.size(); i++) {
+                System.out.print("x" + i + ":-------------------------------");
+                for (int j = 0; j < x.get(i).length; j++) {
+                    if (j % numOfColumn == 0) System.out.println();
+                    System.out.print(x.get(i)[j] + " ");
+                }
+                System.out.println();
             }
         }
         return x;
@@ -149,6 +192,8 @@ public class Main {
     // O..
     // ...
     // ctrl+D (EOF)
+
+//    Turn DEV_MODE of LightsOut on to see detailed solution of the puzzle.
 
     private static final boolean DEV_MODE = false;
 
@@ -180,12 +225,16 @@ public class Main {
 
         LightsOut lightsOut = new LightsOut(numOfRows, numOfColumns, y);
         try {
-            double[] x = lightsOut.solve();
-            // If the solution is unique, then numOfStep is also minimum step.
-            int numOfStep = 0;
-            for (double d : x) if (d > 0.5) numOfStep++;
-            if (DEV_MODE) System.out.println("minimum Step = " + numOfStep);
-            else System.out.println(numOfStep);
+            ArrayList<Double[]> solutions = lightsOut.solve();
+            int minNumOfStep = Integer.MAX_VALUE;
+            for (Double[] solution : solutions) {
+                // If the solution is unique, then numOfStep is also minimum step.
+                int numOfStep = 0;
+                for (double d : solution) if (d > 0.5) numOfStep++;
+                minNumOfStep = numOfStep < minNumOfStep ? numOfStep : minNumOfStep;
+            }
+            if (DEV_MODE) System.out.println("Minimum number of Step = " + minNumOfStep);
+            else System.out.println(minNumOfStep);
         } catch (ArithmeticException e) {
             System.out.println("There is no solution for this puzzle.");
         }
