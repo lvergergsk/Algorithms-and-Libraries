@@ -181,7 +181,7 @@ class LightsOut {
     }
 }
 
-public class Main {
+public class LightsOutMain {
     // Example Input:
     // .O.
     // OO.
