@@ -4,10 +4,17 @@ class DayOutOfBound extends Exception {
     }
 }
 
-public class App {
+public class NewCalenderApp {
     private static final boolean DEV_MODE = false;
 
     public static void main(String[] args) throws DayOutOfBound {
+        // Example input:
+        args = new String[4];
+        args[0] = "365";
+        args[1] = "30";
+        args[2] = "7";
+        args[3] = "0001-03-01";
+
 //        dayInWeek must less than 26: A~Z.
 
 //        Given data:
@@ -24,7 +31,6 @@ public class App {
         int month = new Integer(date[1]);
         int day = new Integer(date[2]);
 
-        //
         int monthInYear = dayInYear / dayInMonth;
 
         int remain = dayInYear - monthInYear * dayInMonth;

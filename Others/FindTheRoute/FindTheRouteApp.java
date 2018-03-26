@@ -138,7 +138,7 @@ class FindTheRoute {
 }
 
 
-public class App {
+public class FindTheRouteApp {
 
     public static void main(String[] args) {
         FindTheRoute findTheRoute = new FindTheRoute(4,3);

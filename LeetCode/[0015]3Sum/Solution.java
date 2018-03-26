@@ -3,9 +3,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 class Solution {
-    public List<List<Integer>> threeSum(int[] num) {
+    private static final boolean DEV_MODE = true;
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{-4, -1, -2, 3, 4, 5};
+        System.out.println(threeSum(nums));
+    }
+
+    public static List<List<Integer>> threeSum(int[] num) {
 
         Arrays.sort(num);
+        if (DEV_MODE) {
+            System.out.print("Given numbers: ");
+            for (int i : num) System.out.print(i + " ");
+            System.out.println();
+        }
+
         List<List<Integer>> res = new LinkedList<>();
 
         for (int i = 0; i < num.length - 2; i++) {
@@ -21,8 +34,12 @@ class Solution {
 
                 int lo = i + 1, hi = num.length - 1, sum = 0 - num[i];
 
+                if (DEV_MODE) System.out.println("lo = " + lo + ", hi = " + hi + ", subTarget = " + sum);
+
                 while (lo < hi) {
 //                    this loop continue until lo reach hi.
+                    if (DEV_MODE)
+                        System.out.println("lo = " + lo + ", hi = " + hi + " currentValue = " + (num[lo] + num[hi]));
                     if (num[lo] + num[hi] == sum) {
 //                        pc will reach here if the requirement of triplet is met.
 //                        so the triplet will be added to solution set.
