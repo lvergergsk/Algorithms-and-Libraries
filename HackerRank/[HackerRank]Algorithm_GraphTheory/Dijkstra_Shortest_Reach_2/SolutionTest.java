@@ -70,7 +70,7 @@ public class SolutionTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
-        Solution.main(null);
+        Dijkstra.main(null);
 
         String output = baos.toString();
         assertEquals("20 25 25 68 86 39 22 70 36 53 91 35 88 27 30 43 54 74 41\n", output);
@@ -97,7 +97,7 @@ public class SolutionTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
-        Solution.main(null);
+        Dijkstra.main(null);
 
         String output = baos.toString();
         assertEquals("4 3 9 7 11 12\n", output);

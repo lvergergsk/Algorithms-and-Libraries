@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 class DijkstraGraph {
 
-    private static final boolean DEV_MODE = false;
-    private static final boolean VERBOSE = false;
+    private static final boolean DEV_MODE = true;
+    private static final boolean VERBOSE = true;
 
     private int[][] edges;
     private int numOfNode;
@@ -109,7 +109,7 @@ class DijkstraGraph {
 
 }
 
-public class Solution {
+public class Dijkstra {
 
     public static void main(String[] args) {
         // INPUT:
