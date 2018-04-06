@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-class Solution {
+public class ThreeSum {
     private static final boolean DEV_MODE = true;
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ class Solution {
                 while (lo < hi) {
 //                    this loop continue until lo reach hi.
                     if (DEV_MODE)
-                        System.out.println("lo = " + lo + ", hi = " + hi + " currentValue = " + (num[lo] + num[hi]));
+                        System.out.println("lo = " + lo + ", hi = " + hi + ", currentValue = " + (num[lo] + num[hi]));
                     if (num[lo] + num[hi] == sum) {
 //                        pc will reach here if the requirement of triplet is met.
 //                        so the triplet will be added to solution set.
