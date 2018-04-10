@@ -1,43 +1,48 @@
 import java.util.HashSet;
+import java.util.Objects;
 
 public class WeightedGraph {
     public final int inf;
+    private final boolean directed;
     private int numOfVertex;
     private int[][] adjacencyMatrix;
 
-    WeightedGraph(int numOfVertex) {
+    WeightedGraph(int numOfVertex, boolean directed) {
+        this.directed = directed;
         this.inf = Integer.MAX_VALUE;
         this.numOfVertex = numOfVertex;
         adjacencyMatrix = new int[numOfVertex][numOfVertex];
         for (int i = 0; i < numOfVertex; i++) {
             for (int j = 0; j < numOfVertex; j++) {
-                adjacencyMatrix[i][j] = i == j ? 0 : inf;
+                adjacencyMatrix[i][j] = inf;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        WeightedGraph weightedGraph = new WeightedGraph(3);
-        weightedGraph.addUndirectedEdge(0, 1, 2);
-        weightedGraph.addDirectedEdge(0, 2, 3);
-        weightedGraph.addUndirectedEdge(1, 2, 4);
-        System.out.println(weightedGraph);
-        HashSet<Integer> neighborsOf1 = weightedGraph.neighbors(1);
-        for (int i : neighborsOf1) System.out.print(i + " ");
-        System.out.println();
     }
 
     public int getWeight(int p, int q) {
         return adjacencyMatrix[p][q];
     }
 
-    void addDirectedEdge(int p, int q, int w) {
-        adjacencyMatrix[p][q] = w;
+    public int getTotalWeight() {
+        int sum = 0;
+        for (int i = 0; i < numOfVertex; i++) {
+            if (directed) {
+                for (int j = 0; j < numOfVertex; j++) {
+                    if (adjacencyMatrix[i][j] != inf) sum += adjacencyMatrix[i][j];
+                }
+            } else {
+                for (int j = i; j < numOfVertex; j++) {
+                    if (adjacencyMatrix[i][j] != inf) sum += adjacencyMatrix[i][j];
+                }
+            }
+        }
+        return sum;
     }
 
-    void addUndirectedEdge(int p, int q, int w) {
-        addDirectedEdge(p, q, w);
-        addDirectedEdge(q, p, w);
+    void addEdge(int p, int q, int w) {
+        adjacencyMatrix[p][q] = w;
+        if (!directed)
+            adjacencyMatrix[q][p] = w;
     }
 
     boolean adjacent(int p, int q) {
@@ -60,14 +65,19 @@ public class WeightedGraph {
 
     @Override
     public String toString() {
-//        TODO: improve.
-        StringBuilder str = new StringBuilder("AdjMatrix:\n");
+        StringBuilder str = new StringBuilder();
         for (int i = 0; i < numOfVertex; i++) {
-            for (int j = 0; j < numOfVertex; j++) {
-                if (adjacencyMatrix[i][j] == inf) str.append("  INF ");
-                else str.append(String.format("%5d ", adjacencyMatrix[i][j]));
+            if (directed) {
+                for (int j = 0; j < numOfVertex; j++) {
+                    if (!(adjacencyMatrix[i][j] == inf))
+                        str.append(i + " -> " + j + " = " + adjacencyMatrix[i][j] + "\n");
+                }
+            } else {
+                for (int j = i; j < numOfVertex; j++) {
+                    if (!(adjacencyMatrix[i][j] == inf))
+                        str.append(i + " <-> " + j + " = " + adjacencyMatrix[i][j] + "\n");
+                }
             }
-            str.append("\n");
         }
         return str.toString();
     }
@@ -87,4 +97,34 @@ public class WeightedGraph {
             this.directed = directed;
         }
     }
+
+    class Vertex<T> {
+        final int id;
+        final String name;
+        T data;
+
+        Vertex(int id) {
+            this.id = id;
+            this.name = Integer.toString(id);
+        }
+
+        Vertex(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Vertex)) return false;
+            Vertex<?> vertex = (Vertex<?>) o;
+            return id == vertex.id;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(id);
+        }
+    }
+
 }

@@ -1,55 +1,32 @@
-import java.util.ArrayList;
 import java.util.HashSet;
 
-interface MST {
-}
-
-public class Prim implements MST {
+public class Prim {
     private static final boolean DEV_MODE = false;
 
     private WeightedGraph weightedGraph;
     private HashSet<Integer> unVisited;
-    private ArrayList<WeightedGraph> MST;
+    private WeightedGraph MST;
 
     Prim(WeightedGraph weightedGraph) {
-        MST = new ArrayList<>();
         this.unVisited = weightedGraph.getAllVertex();
         this.weightedGraph = weightedGraph;
-        while (!unVisited.isEmpty())
-            MST.add(computeMST());
+        MST = computeMST();
+        if (!unVisited.isEmpty()) throw new RuntimeException("The given graph is not connected");
     }
 
-    public static void main(String[] args) {
-        WeightedGraph weightedGraph = new WeightedGraph(7);
-        weightedGraph.addUndirectedEdge(0, 1, 2);
-        weightedGraph.addUndirectedEdge(0, 2, 3);
-        weightedGraph.addUndirectedEdge(0, 3, 3);
-        weightedGraph.addUndirectedEdge(1, 2, 4);
-        weightedGraph.addUndirectedEdge(1, 4, 3);
-        weightedGraph.addUndirectedEdge(2, 3, 5);
-        weightedGraph.addUndirectedEdge(2, 4, 1);
-        weightedGraph.addUndirectedEdge(2, 5, 6);
-        weightedGraph.addUndirectedEdge(3, 5, 7);
-        weightedGraph.addUndirectedEdge(4, 5, 8);
-        weightedGraph.addUndirectedEdge(5, 6, 9);
-        System.out.println(weightedGraph);
-
-        Prim prim = new Prim(weightedGraph);
-
-        ArrayList<WeightedGraph> MST = prim.getMST();
-
-        for (WeightedGraph w : MST) System.out.println(w);
-    }
-
-    public ArrayList<WeightedGraph> getMST() {
+    public WeightedGraph getMST() {
         return MST;
+    }
+
+    public int getMSTWeight() {
+        return MST.getTotalWeight();
     }
 
     public WeightedGraph computeMST() {
         HashSet<Integer> visited = new HashSet<>();
         int numOfVertex = weightedGraph.getNumOfVertex();
 
-        WeightedGraph res = new WeightedGraph(numOfVertex);
+        WeightedGraph res = new WeightedGraph(numOfVertex, false);
 
         int oldSize = unVisited.size();
 
@@ -61,7 +38,6 @@ public class Prim implements MST {
 
             if (DEV_MODE) System.out.println("Visited: " + visited.toString());
             if (DEV_MODE) System.out.println("Unvisited: " + unVisited.toString());
-
 
             oldSize = unVisited.size();
             int minWeight = weightedGraph.inf;
@@ -81,7 +57,7 @@ public class Prim implements MST {
             if (minWeight != weightedGraph.inf) {
                 if (DEV_MODE)
                     System.out.println("edge(" + minP + "," + minQ + ") = " + minWeight);
-                res.addUndirectedEdge(minP, minQ, minWeight);
+                res.addEdge(minP, minQ, minWeight);
                 unVisited.remove(minQ);
                 visited.add(minQ);
             }
