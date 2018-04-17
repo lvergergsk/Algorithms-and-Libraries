@@ -76,7 +76,7 @@ public class Q2 {
                 Coordinate nodePos = trace.remove(trace.size() - 1);
                 visited[nodePos.rowNumber][nodePos.columnNumber] = false;
             }
-
+            
             trace.add(currentNode.nodePos);
             visited[currentNode.nodePos.rowNumber][currentNode.nodePos.columnNumber] = true;
             Coordinate[] availableNextStep = availableNextStep(currentNode.nodePos);
@@ -156,6 +156,8 @@ public class Q2 {
             this.tracePos = tracePos;
             this.nodePos = nodePos;
         }
+
+
 
         @Override
         public boolean equals(Object o) {
