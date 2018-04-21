@@ -45,8 +45,6 @@ public class Q2 {
             q2 = new Q2(H, W, labyrinth);
             System.out.println("Case #" + i + ": " + q2.DFS());
         }
-
-
     }
 
 //    This method find the position of S
