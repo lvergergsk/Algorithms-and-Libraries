@@ -114,7 +114,7 @@ class FindTheRoute {
         return counter;
     }
 
-    class Coordinate {
+    private class Coordinate {
         Integer rowNumber;
         Integer ColumnNumber;
 
@@ -124,7 +124,7 @@ class FindTheRoute {
         }
     }
 
-    class TraceNode {
+    private class TraceNode {
         //        tracePos represent that this node is xth node in the entire trace.
         Integer tracePos;
         //        nodePos position in matrix (the given map).
