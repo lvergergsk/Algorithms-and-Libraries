@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class MinimalTree {
@@ -66,7 +65,7 @@ public class MinimalTree {
         }
     }
 
-    class Interval {
+    private class Interval {
         final int leftIncluded;
         final int rightExcluded;
 
