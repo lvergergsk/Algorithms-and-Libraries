@@ -1,4 +1,4 @@
-package leetcode.string_compression_443;
+package leetcode.string_compression_0443;
 
 //import java.util.Arrays;
 //import java.util.logging.Logger;
@@ -8,7 +8,6 @@ class Solution {
 
     public int compress(char[] chars) {
         if (chars.length < 2) return chars.length;
-        char c = chars[0];
         int ptr = 0;
         int cnt = 0;
         for (int i = 0; i < chars.length; i++) {
@@ -17,8 +16,8 @@ class Solution {
                 chars[ptr++]=chars[i];
                 if(cnt>1) {
                     char[] cntCharArr = Integer.toString(cnt).toCharArray();
-                    for (char cc : cntCharArr) {
-                        chars[ptr++] = cc;
+                    for (char c : cntCharArr) {
+                        chars[ptr++] = c;
                     }
                 }
                 cnt = 0;

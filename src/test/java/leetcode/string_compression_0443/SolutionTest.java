@@ -1,4 +1,4 @@
-package leetcode.string_compression_443;
+package leetcode.string_compression_0443;
 
 import org.junit.Before;
 import org.junit.Test;
