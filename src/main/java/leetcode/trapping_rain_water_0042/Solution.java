@@ -1,20 +1,11 @@
-// TODO
-// URL: https://techdevguide.withgoogle.com/resources/volume-of-water/
-// Sample IN: [1,3,2,4,1,3,1,4,5,2,2,1,4,2,2]
-// Sample OUT: [1,7,7]
+package leetcode.trapping_rain_water_0042;
 
-// Think about:
-// [1,0,1]
-// [0,1,0]
-// [1,0,2]
-// [2,0,1]
-// [1,0,2,0,1]
-// [2,0,1,0,2]
-// [3,0,2,0,1]
-// [3,0,2,0,1,0,2,0,3]
+import java.util.Arrays;
+//import java.util.logging.Logger;
 
-public class Rainwater {
-    private static final boolean DEV_MODE = false;
+class Solution {
+//    private Logger LOGGER = Logger.getLogger(this.getClass().getName());
+
 
     int[] rainWaterTwoPointer(int[] arr) {
         int[] res = new int[arr.length];
@@ -26,10 +17,10 @@ public class Rainwater {
         int ptrr = arr.length - 1;
         int levelr = arr[ptrr];
         while (ptrl < ptrr) {
-            if (DEV_MODE) System.out.println("-----------------");
-            if (DEV_MODE) System.out.println("ptrl: " + ptrl + ", ptrr: " + ptrr);
-            if (DEV_MODE) System.out.println("arr[ptrl]: " + arr[ptrl] + ", arr[ptrr]: " + arr[ptrr]);
-            if (DEV_MODE) System.out.println("levell: " + levell + ", levelr: " + levelr);
+//            LOGGER.info("ptrl = " + ptrl + ", ptrr = " + ptrr +
+//                    "\n levell = " + levell + ", levelr = " + levelr +
+//                    "\n arr[ptrl] = " + arr[ptrl] +
+//                    "\n arr[ptrr] = " + arr[ptrr]);
 
             if (arr[ptrr] < arr[ptrl]) {
                 ptrr--;
@@ -46,5 +37,9 @@ public class Rainwater {
             }
         }
         return res;
+    }
+
+    public int trap(int[] height) {
+        return Arrays.stream(rainWaterTwoPointer(height)).sum();
     }
 }
