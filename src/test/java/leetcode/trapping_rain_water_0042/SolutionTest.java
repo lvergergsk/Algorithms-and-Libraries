@@ -26,4 +26,18 @@ public class SolutionTest {
         int rep = solution.trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1});
         assertEquals(6,rep);
     }
+      @Test
+    public void rainWater1() {
+        int[] testInput = new int[]{1, 3, 2, 4, 1, 3, 1, 4, 5, 2, 2, 1, 4, 2, 2};
+        int[] rep=solution.rainWaterTwoPointer(testInput);
+        System.out.println(Arrays.toString(rep));
+    }
+
+    @Test
+    public void rainWater2() {
+        int[] testInput = new int[]{2,1,1,1,2};
+        int[] rep=solution.rainWaterTwoPointer(testInput);
+        System.out.println(Arrays.toString(rep));
+    }
+
 }
