@@ -2,7 +2,7 @@ package leetcode.valid_sudoku_0036;
 
 //import java.util.logging.Logger;
 
-class Solution {
+public class Solution {
 //    private Logger LOGGER = Logger.getLogger(this.getClass().getName());
 
     public boolean isValidSudoku(char[][] board) {

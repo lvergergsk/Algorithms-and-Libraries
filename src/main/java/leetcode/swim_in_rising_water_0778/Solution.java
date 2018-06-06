@@ -38,6 +38,7 @@ class Solution {
     }
 
 
+    //    BFS && hashset
     int swimInWater(int[][] grid) {
 
 //        For safety, you may need to check whether grid is valid
@@ -90,4 +91,11 @@ class Solution {
 //            LOGGER.info("t = " + t + ", boundary = " + newBoundary);
         }
     }
+
+
+    //    DFS && binarySearch
+    int swimInWaterAlternative1(int[][] grid) {
+        return 0;
+    }
+
 }
