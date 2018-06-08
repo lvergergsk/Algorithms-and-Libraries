@@ -1,10 +1,19 @@
 package playground;
 
+import java.util.PriorityQueue;
+
 public class Playground{
    public static void main(String[] args){
-       int rowNum=3;
-       int columnNum=3;
-       int gridNum=(rowNum/3)*3 +columnNum/3;
-       System.out.println(gridNum);
+       PriorityQueue<Integer> queue=new PriorityQueue<>();
+       queue.add(3);
+       queue.add(7);
+       queue.add(1);
+       queue.add(2);
+       System.out.println(queue.poll());
+       System.out.println(queue.poll());
+       System.out.println(queue.poll());
+       System.out.println(queue.poll());
+       System.out.println(queue.poll());
+
    }
 }
