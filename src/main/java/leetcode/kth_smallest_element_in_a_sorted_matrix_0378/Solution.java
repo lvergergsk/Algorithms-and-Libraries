@@ -11,6 +11,8 @@ import java.util.PriorityQueue;
 // NOTE: This solution neither require vertically sorted,
 // nor require the arrays having the same length.
 
+// TODO: Improve time complexity.
+
 // N: num of arrays, find the Kth smallest: O(N + K logN).
 class Solution {
 
