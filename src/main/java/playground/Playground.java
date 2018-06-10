@@ -1,19 +1,11 @@
 package playground;
 
+import java.math.BigInteger;
 import java.util.PriorityQueue;
 
-public class Playground{
-   public static void main(String[] args){
-       PriorityQueue<Integer> queue=new PriorityQueue<>();
-       queue.add(3);
-       queue.add(7);
-       queue.add(1);
-       queue.add(2);
-       System.out.println(queue.poll());
-       System.out.println(queue.poll());
-       System.out.println(queue.poll());
-       System.out.println(queue.poll());
-       System.out.println(queue.poll());
-
-   }
+public class Playground {
+    public static void main(String[] args) {
+        BigInteger i = new BigInteger("0010");
+        System.out.println(i);
+    }
 }

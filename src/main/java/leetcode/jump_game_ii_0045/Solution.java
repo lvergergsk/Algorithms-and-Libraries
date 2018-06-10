@@ -27,9 +27,6 @@ class Solution {
 
 //    O(N)
     int jump(int[] nums) {
-        int[] dp = new int[nums.length];
-        dp[0] = 0;
-
         int step = 0;
         int startInclusive = 0;
         int endExclusive = 1;
