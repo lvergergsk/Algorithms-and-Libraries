@@ -2,7 +2,6 @@ package leetcode.flatten_binary_tree_to_linked_list_0114;
 
 import org.junit.Before;
 import org.junit.Test;
-import sun.reflect.generics.tree.Tree;
 
 import static org.junit.Assert.*;
 
