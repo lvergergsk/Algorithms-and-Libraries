@@ -1,4 +1,6 @@
-public class Permutation {
+package others.combinatorial;
+
+class Permutation {
     private int[] array;
     private int firstNum;
     private boolean firstReady = false;

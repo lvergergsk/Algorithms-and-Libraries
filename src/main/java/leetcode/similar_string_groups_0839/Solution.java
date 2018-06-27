@@ -46,7 +46,6 @@ class Solution {
         return true;
     }
 
-    //    if group = 0, not grouped.
     private void dfs(int index, String[] strs, int[] group) {
         for (int i = 0; i < strs.length; i++) {
             if (group[index] != group[i] && isSimilar(strs[index], strs[i])) {
