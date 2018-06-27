@@ -1,9 +1,11 @@
+package interview.google;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Q1 {
+class Q1 {
     private HashMap<String, Integer> hashMap;
 
     private Q1() {

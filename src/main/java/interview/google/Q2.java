@@ -1,3 +1,5 @@
+package interview.google;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.Stack;
 // DFS using stack.
 // No memorization because available grid is depend on the path to current position.
 
-public class Q2 {
+class Q2 {
 
     private char[][] labyrinth;
     private Coordinate start;
