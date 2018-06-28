@@ -1,3 +1,5 @@
+package others.LightsOut;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -181,7 +183,7 @@ class LightsOut {
     }
 }
 
-public class LightsOutMain {
+class LightsOutMain {
     // Example Input:
     // .O.
     // OO.
