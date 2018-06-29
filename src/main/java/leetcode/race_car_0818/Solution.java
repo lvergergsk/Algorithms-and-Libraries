@@ -20,15 +20,21 @@ class Solution {
 //        2 ^ (n - 1) <= target < 2 ^ n
         int n = (int) (Math.log(t) / Math.log(2)) + 1;
 //        If n is just the correct num of step of acceleration.
-//        |-------------(N)----------->T|
+//        |-------------(N)----------->t|
         if (1 << n == t + 1) dp[t] = n;
         else {
-//            |-------------(N)------T----->|R
-//                                  |T<-(M)-|
+//            |-------------(N)------t----->|R
+//                                  |T<-(x)-|
+//            dp[t]=x+N+1 (if it is smaller)
             dp[t] = racecarAnalytical((1 << n) - 1 - t, dp) + n + 1;
 
-//            |-------------(N)------------>|          T
-//                                          |---(M)--->T|
+//            |-------------(N-1)------------>|R      t
+//                       R|<--------(M)-------|       t
+//                        |-------------(x)---------->t|
+//            |----(V)----|
+//            distance(x)=t-distance(V)=t-(distance(N-1)-distance(M))
+//            dp[t]=N-1+1+M+1+x
+
 //            O(logN) because n prop to t
             for (int m = 0; m < n - 1; ++m)
                 dp[t] = Math.min(dp[t], racecarAnalytical(t - (1 << (n - 1)) + (1 << m), dp) + n + m + 1);
