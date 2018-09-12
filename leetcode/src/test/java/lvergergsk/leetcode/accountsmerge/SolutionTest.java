@@ -1,4 +1,4 @@
-package leetcode.account_merge_0721;
+package lvergergsk.leetcode.accountsmerge;
 
 import org.junit.Before;
 import org.junit.Test;

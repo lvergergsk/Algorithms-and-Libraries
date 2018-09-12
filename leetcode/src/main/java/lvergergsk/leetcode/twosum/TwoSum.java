@@ -1,8 +1,13 @@
+package lvergergsk.leetcode.twosum;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 
+/**
+ * 0001
+ */
 public class TwoSum {
     public static void main(String[] args) {
         TwoSum twoSum = new TwoSum();

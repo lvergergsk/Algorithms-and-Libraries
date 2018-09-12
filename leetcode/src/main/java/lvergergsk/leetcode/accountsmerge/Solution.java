@@ -1,8 +1,11 @@
-package leetcode.account_merge_0721;
+package lvergergsk.leetcode.accountsmerge;
 
 import java.util.*;
 //import java.util.logging.Logger;
 
+/**
+ * 0721: Accounts Merge
+ */
 class Solution {
 
 //    Logger LOGGER = Logger.getLogger(Solution.class.getName());
