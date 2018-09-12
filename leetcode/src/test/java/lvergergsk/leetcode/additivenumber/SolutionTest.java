@@ -1,4 +1,4 @@
-package leetcode.additive_number_0306;
+package lvergergsk.leetcode.additivenumber;
 
 import org.junit.Before;
 import org.junit.Test;

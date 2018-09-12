@@ -1,8 +1,11 @@
-package leetcode.additive_number_0306;
+package lvergergsk.leetcode.additivenumber;
 
 import java.math.BigInteger;
 //import java.util.logging.Logger;
 
+/**
+ * 0306: Additive Number
+ */
 class Solution {
 
 //    private Logger LOGGER = Logger.getLogger(this.getClass().getName());
