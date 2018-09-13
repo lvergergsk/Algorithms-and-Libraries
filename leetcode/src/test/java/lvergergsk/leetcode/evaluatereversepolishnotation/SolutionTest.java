@@ -1,4 +1,4 @@
-package leetcode.evaluate_reverse_polish_notation_0150;
+package lvergergsk.leetcode.evaluatereversepolishnotation;
 
 import org.junit.Before;
 import org.junit.Test;

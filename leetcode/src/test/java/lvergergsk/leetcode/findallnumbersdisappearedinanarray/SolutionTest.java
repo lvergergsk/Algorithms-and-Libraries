@@ -1,4 +1,4 @@
-package leetcode.find_all_numbers_disappeared_in_an_array_0448;
+package lvergergsk.leetcode.findallnumbersdisappearedinanarray;
 
 import org.junit.Before;
 import org.junit.Test;

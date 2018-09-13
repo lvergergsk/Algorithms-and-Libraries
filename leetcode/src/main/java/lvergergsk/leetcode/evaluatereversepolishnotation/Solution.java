@@ -1,9 +1,12 @@
-package leetcode.evaluate_reverse_polish_notation_0150;
+package lvergergsk.leetcode.evaluatereversepolishnotation;
 
 import java.util.Stack;
 //import java.util.logging.Logger;
 import java.util.stream.Stream;
 
+/**
+ * 0150: evaluate reverse polish notation
+ */
 class Solution {
 //    private Logger LOGGER = Logger.getLogger(this.getClass().getName());
 

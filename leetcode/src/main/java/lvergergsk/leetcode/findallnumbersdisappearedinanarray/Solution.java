@@ -1,8 +1,12 @@
-package leetcode.find_all_numbers_disappeared_in_an_array_0448;
+package lvergergsk.leetcode.findallnumbersdisappearedinanarray;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * 0448: find all numbers disappeared in an array.
+ */
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> res = new ArrayList<>();
