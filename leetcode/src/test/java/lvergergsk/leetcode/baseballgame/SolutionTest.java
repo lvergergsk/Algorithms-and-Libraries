@@ -1,9 +1,7 @@
-package leetcode.baseball_game_0682;
+package lvergergsk.leetcode.baseballgame;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class SolutionTest {
     Solution solution;

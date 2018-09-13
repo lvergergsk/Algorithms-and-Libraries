@@ -1,8 +1,11 @@
-package leetcode.baseball_game_0682;
+package lvergergsk.leetcode.baseballgame;
 
 import java.util.ArrayList;
 //import java.util.logging.Logger;
 
+/**
+ * 0682: baseball game
+ */
 class Solution {
 //    private Logger LOGGER = Logger.getLogger(this.getClass().getName());
 

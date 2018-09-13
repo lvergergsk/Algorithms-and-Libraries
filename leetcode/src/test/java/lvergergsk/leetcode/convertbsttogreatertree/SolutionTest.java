@@ -1,4 +1,4 @@
-package leetcode.convert_bst_to_greater_tree_0538;
+package lvergergsk.leetcode.convertbsttogreatertree;
 
 import org.junit.Before;
 import org.junit.Test;

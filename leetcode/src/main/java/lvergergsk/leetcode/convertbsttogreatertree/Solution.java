@@ -1,9 +1,11 @@
-package leetcode.convert_bst_to_greater_tree_0538;
+package lvergergsk.leetcode.convertbsttogreatertree;
 
 import java.util.Stack;
 //import java.util.logging.Logger;
 
-// Definition for a binary tree node.
+/**
+ * Definition for a binary tree node.
+ */
 class TreeNode {
     int val;
     TreeNode left;
@@ -21,6 +23,9 @@ class TreeNode {
     }
 }
 
+/**
+ * 0538: convert bst to greater tree
+ */
 class Solution {
 //    private Logger LOGGER = Logger.getLogger(this.getClass().getName());
 
