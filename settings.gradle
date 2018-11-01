@@ -4,9 +4,11 @@ include 'examples'
 include 'reactivex'
 include 'retrofit'
 include 'spring-websocket'
+include 'kotlin-language'
 
 project(':leetcode').projectDir = "$rootDir/leetcode" as File
 project(':examples').projectDir = "$rootDir/examples" as File
 project(':reactivex').projectDir = "$rootDir/reactivex" as File
 project(':retrofit').projectDir = "$rootDir/retrofit" as File
 project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
+project(':kotlin-language').projectDir = "$rootDir/kotlin-language" as File
