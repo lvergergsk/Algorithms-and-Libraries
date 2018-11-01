@@ -1,14 +1,19 @@
 rootProject.name = 'root'
+
+include 'kotlin-language'
 include 'leetcode'
 include 'examples'
 include 'reactivex'
 include 'retrofit'
+include 'springfox'
 include 'spring-websocket'
-include 'kotlin-language'
+include 'spring-mybatis'
 
+project(':kotlin-language').projectDir = "$rootDir/kotlin-language" as File
 project(':leetcode').projectDir = "$rootDir/leetcode" as File
 project(':examples').projectDir = "$rootDir/examples" as File
 project(':reactivex').projectDir = "$rootDir/reactivex" as File
 project(':retrofit').projectDir = "$rootDir/retrofit" as File
+project(':springfox').projectDir = "$rootDir/springfox" as File
 project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
-project(':kotlin-language').projectDir = "$rootDir/kotlin-language" as File
+project(':spring-mybatis').projectDir = "$rootDir/spring-mybatis" as File
