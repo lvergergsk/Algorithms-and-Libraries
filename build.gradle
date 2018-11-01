@@ -1,7 +1,52 @@
 buildscript {
     ext {
-        kotlinVersion = "1.2.60"
-        springBootVersion = "2.0.0.RELEASE"
+        // Kotlin
+        kotlinVersion = "1.3.0"
+        kotlinCoroutineVersion = "1.0.0"
+
+        // Spring
+        springBootVersion = "2.0.3.RELEASE"
+        springfoxVersion = "2.9.2"
+        springMybatisVersion = "1.3.2"
+
+        // Common
+        jacksonVersion = "2.9.6"
+        okHttpVersion = "3.11.0"
+        retrofit2Version = "2.4.0"
+        retrofit2ReactorAdapterVersion = "2.1.0"
+        logbackVersion = "1.2.3"
+        reactorVersion = "3.1.8.RELEASE"
+        caffeineVersion = "2.6.2"
+        mysqlConnectorVersion = "8.0.11"
+        javaxServletVersion = "3.1.0"
+        yauaaVersion = "4.2"
+
+        // Cache
+        caffeineVersion = "2.6.2"
+
+        // Metric
+        micrometerPrometheusVersion = "1.0.5"
+
+        // JUnit
+        JUnitPlatformVersion = "1.3.1"
+        JUnitJupiterVersion = "5.3.1"
+
+        // thymeleaf
+        thymeleafVersion = "2.0.2.RELEASE"
+        thymeleafLayoutDialectVersion = "2.0.2"
+        thymeleafSpring4Version = "3.0.8.RELEASE"
+
+        // Cloud
+        awsJavaSdkS3Version = "1.11.362"
+
+        // jquery plugin
+        jqueryVersion = "3.3.1-1"
+        materializecssVersion = "0.100.2"
+        datatablesVersion = "1.10.19"
+        datatablesButtonsVersion = "1.5.1"
+        datatablesSelectVersion = "1.2.3"
+        dropzoneVersion = "5.2.0"
+
     }
 
     repositories {
@@ -29,7 +74,7 @@ plugins {
 allprojects {
     apply plugin: 'maven'
 
-    group = 'lvergergsk.finind'
+    group = 'lvergergsk.examples'
     version = '0.0.1-SNAPSHOT'
 }
 

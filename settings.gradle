@@ -1,6 +1,8 @@
-rootProject.name = 'competitive-programming'
+rootProject.name = 'root'
 include 'leetcode'
 include 'examples'
+include 'reactivex'
 
 project(':leetcode').projectDir = "$rootDir/leetcode" as File
 project(':examples').projectDir = "$rootDir/examples" as File
+project(':reactivex').projectDir = "$rootDir/reactivex" as File
