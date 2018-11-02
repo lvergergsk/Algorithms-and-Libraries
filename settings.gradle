@@ -6,6 +6,7 @@ include 'examples'
 include 'reactivex'
 include 'retrofit'
 include 'springfox'
+include 'testcontainers'
 include 'spring-websocket'
 include 'spring-mybatis'
 
@@ -15,5 +16,6 @@ project(':examples').projectDir = "$rootDir/examples" as File
 project(':reactivex').projectDir = "$rootDir/reactivex" as File
 project(':retrofit').projectDir = "$rootDir/retrofit" as File
 project(':springfox').projectDir = "$rootDir/springfox" as File
+project(':testcontainers').projectDir = "$rootDir/testcontainers" as File
 project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
 project(':spring-mybatis').projectDir = "$rootDir/spring-mybatis" as File
