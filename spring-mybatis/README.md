@@ -1,3 +1,3 @@
 #### ToDo
 - Add example for:
-  - ``@AuthenticationPrincipal``
+  - [ ] ``@AuthenticationPrincipal``

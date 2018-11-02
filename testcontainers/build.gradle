@@ -1,5 +1,17 @@
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // Spring Starter
+    implementation "org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE"
+    implementation "org.springframework.boot:spring-boot-starter-data-redis:2.0.0.RELEASE"
+
+    // Spring Test Starter
+    testImplementation "org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE"
+
+//    implementation "org.testcontainers:testcontainers:1.7.3"
+    implementation "org.testcontainers:testcontainers:1.9.1"
+
 }
 
 compileKotlin {
