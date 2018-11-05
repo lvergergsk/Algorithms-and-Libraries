@@ -9,7 +9,6 @@ dependencies {
     // Spring Test Starter
     testImplementation "org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE"
 
-//    implementation "org.testcontainers:testcontainers:1.7.3"
     implementation "org.testcontainers:testcontainers:1.9.1"
 
 }

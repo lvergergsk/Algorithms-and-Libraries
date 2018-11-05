@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.web.client.TestRestTemplate
 
 
-class DemoControllerTest : AbstractIntegrationTest() {
+class ExampleControllerTest : AbstractIntegrationTest() {
 
     companion object {
         private val log = Utils.loggerFor(javaClass)

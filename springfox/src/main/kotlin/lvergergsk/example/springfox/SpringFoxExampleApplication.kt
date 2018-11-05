@@ -1,11 +1,11 @@
-package lvergergsk.examples.testcontainers.spring
+package lvergergsk.example.springfox
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ExampleApplication
+class SpringFoxExampleApplication
 
 fun main(args: Array<String>) {
-    runApplication<ExampleApplication>(*args)
+    runApplication<SpringFoxExampleApplication>(*args)
 }

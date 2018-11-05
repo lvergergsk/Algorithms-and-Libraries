@@ -12,8 +12,8 @@ import org.testcontainers.containers.GenericContainer
 
 
 @RunWith(SpringJUnit4ClassRunner::class)
-@SpringBootTest(classes = [DemoApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ContextConfiguration(initializers = arrayOf(AbstractIntegrationTest.Initializer::class))
+@SpringBootTest(classes = [ExampleApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ContextConfiguration(initializers = [AbstractIntegrationTest.Initializer::class])
 class AbstractIntegrationTest {
 
     companion object {
