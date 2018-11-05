@@ -9,6 +9,7 @@ include 'springfox'
 include 'testcontainers'
 include 'validation'
 include 'micrometer'
+include 'webjars'
 
 // Spring
 include 'spring-websocket'
@@ -23,6 +24,7 @@ project(':springfox').projectDir = "$rootDir/springfox" as File
 project(':testcontainers').projectDir = "$rootDir/testcontainers" as File
 project(':validation').projectDir = "$rootDir/validation" as File
 project(':micrometer').projectDir = "$rootDir/micrometer" as File
+project(':webjars').projectDir = "$rootDir/webjars" as File
 
 // Spring
 project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
