@@ -8,8 +8,8 @@
 
 # For Mybatis module.
 create TABLE IF NOT EXISTS `greeting` (
-  `id`      INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  `message` VARCHAR(200) NOT NULL
+  `greeting_id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `message`     VARCHAR(200) NOT NULL
 )
   ENGINE = InnoDB
   AUTO_INCREMENT = 1

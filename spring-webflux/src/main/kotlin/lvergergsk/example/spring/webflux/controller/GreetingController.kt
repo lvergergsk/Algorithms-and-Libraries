@@ -18,15 +18,9 @@ class GreetingController(
      */
     @GetMapping("/{id}")
     fun getGreetingMessage(@PathVariable id: Long): Mono<GreetingResponse> {
-        val greetingEntityMono = greetingService.findGreetingById(id)
+        val greetingEntity = greetingService.findGreetingById(id)
 
-        // Receive a mono, manipulate and return Mono response.
-        return greetingEntityMono.map { greetingEntity ->
-            GreetingResponse(
-                greetingEntity.greetingId,
-                greetingEntity.message
-            )
-        }
+        return Mono.just(GreetingResponse(greetingEntity.id, greetingEntity.message))
     }
 
 }
