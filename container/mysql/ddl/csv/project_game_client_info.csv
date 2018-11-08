@@ -1,0 +1,2 @@
+project_id,google_play_url        ,android_scheme ,android_package_signature,android_package_name,app_store_url                   ,ios_scheme   ,ios_bundle_id   ,is_valid,created_at         ,updated_at         ,created_by  ,updated_by
+PROJECT1  ,https://example.com/exa,thisIsExampleSc,testtest                 ,com.test.console    ,https://itunes.apple.com/example,thisIsExample,com.test.console,1       ,2018-06-05 17:34:39,2018-06-05 17:34:39,T0030000000B,T0030000000B

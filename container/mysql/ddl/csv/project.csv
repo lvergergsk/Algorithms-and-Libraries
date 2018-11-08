@@ -1,0 +1,3 @@
+project_id,api_key,sdk_version,status,organization_id,name,type,description,channel_id,company,email,is_valid,created_at,updated_at,created_by,updated_by
+PROJECT1,b273c54f74004a00849f445c2ed9ee16,,1,1,Console Test App #20180516,1,ConsoleTestApplication,,,,1,2018-05-16 18:48:22,2018-05-16 19:17:36,T003000000BY,T003000000BY
+PROJECT2,602cd250b41945e89989ab53c78ac9da,,1,1,Retrosopectiveforconsole01,1,hogehogehoge,,,,1,2018-05-29 18:11:15,2018-05-29 18:11:15,T0030000000B,T0030000000B

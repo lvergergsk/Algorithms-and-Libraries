@@ -2,4 +2,4 @@
 - Keywords
   - ``by``
   - ``companion object``
-  - 
+  - ``@JvmStatic``

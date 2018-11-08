@@ -1,0 +1,3 @@
+id,project_id,used_service_id,is_valid,created_at,updated_at,created_by,updated_by
+1,PROJECT1,1,1,2018-01-01 00:00:00,2018-01-01 00:00:00,T003000000BY,T003000000BY
+2,PROJECT1,2,1,2018-01-01 00:00:00,2018-01-01 00:00:00,T003000000BY,T003000000BY

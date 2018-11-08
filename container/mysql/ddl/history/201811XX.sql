@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS `permission` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `permission` VARCHAR(100) NOT NULL,
+  `role` TINYINT UNSIGNED NOT NULL,
+  `created_by` VARCHAR(50) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_by` VARCHAR(50) NOT NULL,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+  UNIQUE KEY `permission_uk` (`permission`, `role`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `permission_i18n` (
+  `permission_id` INT UNSIGNED NOT NULL,
+  `locale`  VARCHAR(10) NOT NULL,
+  `description` TINYTEXT NOT NULL,
+  PRIMARY KEY (`permission_id`, `locale`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;

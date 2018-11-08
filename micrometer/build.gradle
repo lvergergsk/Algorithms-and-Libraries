@@ -1,5 +1,11 @@
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // Micrometer
+//    implementation "io.micrometer:micrometer-registry-atlas:1.1.0"
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.1.0'
 }
 
 compileKotlin {

@@ -1,0 +1,2 @@
+id,name,email,line_uid,description,picture,is_valid,created_at,type
+C0093ae45209e1477e9a4c8e267ca5c2a8,username-foo,foo@bar.com,,,,true,0
