@@ -10,9 +10,6 @@ import javax.persistence.Table
 @Table(name = "greeting")
 data class GreetingEntity(
 
-    /**
-     * You can't change name of id, there must be a property named "id" in entity.
-     */
     @Id @GeneratedValue
     @Column(name = "greeting_id")
     val id: Long = 0,
