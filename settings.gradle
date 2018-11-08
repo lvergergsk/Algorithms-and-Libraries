@@ -18,6 +18,8 @@ include 'reactor'
 include 'spring-mybatis'
 include 'spring-security'
 include 'spring-websocket'
+include 'spring-web'
+include 'spring-webflux'
 
 project(':common').projectDir = "$rootDir/common" as File
 project(':test').projectDir = "$rootDir/test" as File
@@ -37,3 +39,5 @@ project(':reactor').projectDir = "$rootDir/reactor" as File
 project(':spring-mybatis').projectDir = "$rootDir/spring-mybatis" as File
 project(':spring-security').projectDir = "$rootDir/spring-security" as File
 project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
+project(':spring-web').projectDir = "$rootDir/spring-web" as File
+project(':spring-webflux').projectDir = "$rootDir/spring-webflux" as File
