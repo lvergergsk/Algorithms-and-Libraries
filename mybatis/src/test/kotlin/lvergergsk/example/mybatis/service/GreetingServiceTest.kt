@@ -20,7 +20,7 @@ class GreetingServiceTest {
     /**
      * Id 1 is inserted into DB when init
      */
-    @DisplayName("MyBatis: retrive data using sql provider.")
+    @DisplayName("MyBatis: Retrieve data using sql provider.")
     @Test
     fun `Retrive data`() {
         val greetingEntity = greetingService.findById(1)
