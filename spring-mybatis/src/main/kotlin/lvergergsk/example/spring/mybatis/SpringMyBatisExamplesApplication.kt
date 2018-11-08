@@ -1,11 +1,11 @@
-package lvergergsk.example.mybatis
+package lvergergsk.example.spring.mybatis
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class MyBatisExamplesApplication
+class SpringMyBatisExamplesApplication
 
 fun main(args: Array<String>) {
-    runApplication<MyBatisExamplesApplication>(*args)
+    runApplication<SpringMyBatisExamplesApplication>(*args)
 }

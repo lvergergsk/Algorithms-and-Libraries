@@ -1,4 +1,4 @@
-package lvergergsk.example.mybatis.entity
+package lvergergsk.example.spring.mybatis.entity
 
 data class GreetingEntity(
     var id: Long = 0,

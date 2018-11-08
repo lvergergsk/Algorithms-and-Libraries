@@ -1,6 +1,6 @@
-package lvergergsk.example.mybatis.provider
+package lvergergsk.example.spring.mybatis.provider
 
-import lvergergsk.example.mybatis.entity.GreetingEntity
+import lvergergsk.example.spring.mybatis.entity.GreetingEntity
 import org.apache.ibatis.annotations.Param
 import org.apache.ibatis.jdbc.SQL
 

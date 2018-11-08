@@ -1,7 +1,7 @@
-package lvergergsk.example.mybatis.mapper
+package lvergergsk.example.spring.mybatis.mapper
 
-import lvergergsk.example.mybatis.entity.GreetingEntity
-import lvergergsk.example.mybatis.provider.GreetingSqlProvider
+import lvergergsk.example.spring.mybatis.entity.GreetingEntity
+import lvergergsk.example.spring.mybatis.provider.GreetingSqlProvider
 import org.apache.ibatis.annotations.InsertProvider
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Param

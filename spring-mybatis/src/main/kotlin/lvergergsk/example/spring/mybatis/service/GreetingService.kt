@@ -1,7 +1,7 @@
-package lvergergsk.example.mybatis.service
+package lvergergsk.example.spring.mybatis.service
 
-import lvergergsk.example.mybatis.entity.GreetingEntity
-import lvergergsk.example.mybatis.mapper.GreetingMapper
+import lvergergsk.example.spring.mybatis.entity.GreetingEntity
+import lvergergsk.example.spring.mybatis.mapper.GreetingMapper
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

@@ -1,6 +1,6 @@
-package lvergergsk.example.mybatis.service
+package lvergergsk.example.spring.mybatis.service
 
-import lvergergsk.example.mybatis.entity.GreetingEntity
+import lvergergsk.example.spring.mybatis.entity.GreetingEntity
 import lvergergsk.examples.test.annotation.SpringTestHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
