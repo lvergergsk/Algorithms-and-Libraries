@@ -1,4 +1,3 @@
-# start middleware for local test
 version: '2'
 services:
   mysql:
