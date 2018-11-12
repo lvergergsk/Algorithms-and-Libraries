@@ -1,0 +1,32 @@
+description = "Test utility and helpers"
+project.version = "0.1.0-SNAPSHOT"
+
+buildscript {
+    repositories {
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+dependencies {
+    runtime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+    implementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
+    implementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+    implementation "org.testcontainers:testcontainers:1.7.3"
+
+}

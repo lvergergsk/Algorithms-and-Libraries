@@ -46,7 +46,6 @@ buildscript {
         datatablesButtonsVersion = "1.5.1"
         datatablesSelectVersion = "1.2.3"
         dropzoneVersion = "5.2.0"
-
     }
 
     repositories {

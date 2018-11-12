@@ -11,19 +11,22 @@ class GreetingSqlProvider {
         fun findById(@Param("id") id: Long): String {
             return object : SQL() {
                 init {
-                    SELECT("id,message")
+                    SELECT("greeting_id,message")
                     FROM("greeting")
-                    WHERE("id=#{id}")
+                    WHERE("greeting_id=#{id}")
                 }
             }.toString()
         }
 
         @JvmStatic
-        fun insert(greetingEntity: GreetingEntity): String {
+        fun insert(
+            @Suppress("UNUSED_PARAMETER")
+            greetingEntity: GreetingEntity
+        ): String {
             return object : SQL() {
                 init {
                     INSERT_INTO("greeting")
-                    VALUES("id", "#{id}")
+                    VALUES("greeting_id", "#{id}")
                     VALUES("message", "#{message}")
                 }
             }.toString()

@@ -1,10 +1,11 @@
 dependencies {
-    implementation project(":test")
+    implementation project(":common-test")
 
-    implementation "org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
     implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2"
     implementation "org.slf4j:slf4j-api:1.7.25"
 
     runtime "mysql:mysql-connector-java:8.0.11"
 }
-

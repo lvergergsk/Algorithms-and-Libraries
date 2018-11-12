@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      password: example
+      database: example
+      username: example
+      authentication-database: admin
+logging:
+  level:
+    lvergergsk: debug

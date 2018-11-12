@@ -1,7 +1,7 @@
 rootProject.name = 'example'
 
 include 'common'
-include 'test'
+include 'common-test'
 include 'kotlin'
 include 'leetcode'
 include 'examples'
@@ -20,9 +20,10 @@ include 'spring-security'
 include 'spring-websocket'
 include 'spring-web'
 include 'spring-webflux'
+include 'spring-mongo'
 
 project(':common').projectDir = "$rootDir/common" as File
-project(':test').projectDir = "$rootDir/test" as File
+project(':common-test').projectDir = "$rootDir/common-test" as File
 project(':kotlin').projectDir = "$rootDir/kotlin" as File
 project(':leetcode').projectDir = "$rootDir/leetcode" as File
 project(':examples').projectDir = "$rootDir/examples" as File
@@ -41,3 +42,4 @@ project(':spring-security').projectDir = "$rootDir/spring-security" as File
 project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
 project(':spring-web').projectDir = "$rootDir/spring-web" as File
 project(':spring-webflux').projectDir = "$rootDir/spring-webflux" as File
+project(':spring-mongo').projectDir = "$rootDir/spring-mongo" as File

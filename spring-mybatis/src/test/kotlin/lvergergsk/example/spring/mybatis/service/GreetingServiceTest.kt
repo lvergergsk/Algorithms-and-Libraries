@@ -1,21 +1,22 @@
 package lvergergsk.example.spring.mybatis.service
 
 import lvergergsk.example.spring.mybatis.entity.GreetingEntity
-import lvergergsk.examples.test.annotation.SpringTestHelper
+import lvergergsk.examples.test.annotation.WithContainers
+import lvergergsk.examples.test.annotation.containers.MysqlTestContainer
+import lvergergsk.examples.test.helper.SpringApplicationTest
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 
-@SpringTestHelper
-class GreetingServiceTest {
-    companion object {
-        val log = LoggerFactory.getLogger(javaClass)
-    }
+@WithContainers(initializers = [MysqlTestContainer.Initializer::class])
+class GreetingServiceTest : SpringApplicationTest() {
+    val log: Logger = LoggerFactory.getLogger(javaClass)
 
     @Autowired
-    lateinit var greetingService: GreetingService
+    private lateinit var greetingService: GreetingService
 
     /**
      * Id 1 is inserted into DB when init
