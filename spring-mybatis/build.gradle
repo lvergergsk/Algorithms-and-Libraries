@@ -1,5 +1,5 @@
 dependencies {
-    implementation project(":common-test")
+    testImplementation project(":common-test")
 
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"

@@ -15,6 +15,7 @@ include 'webjars'
 include 'reactor'
 
 // Spring
+include 'spring-misc'
 include 'spring-mybatis'
 include 'spring-security'
 include 'spring-websocket'
@@ -37,9 +38,11 @@ project(':webjars').projectDir = "$rootDir/webjars" as File
 project(':reactor').projectDir = "$rootDir/reactor" as File
 
 // Spring
+project(':spring-misc').projectDir = "$rootDir/spring-misc" as File
 project(':spring-mybatis').projectDir = "$rootDir/spring-mybatis" as File
 project(':spring-security').projectDir = "$rootDir/spring-security" as File
 project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
 project(':spring-web').projectDir = "$rootDir/spring-web" as File
 project(':spring-webflux').projectDir = "$rootDir/spring-webflux" as File
 project(':spring-mongo').projectDir = "$rootDir/spring-mongo" as File
+
