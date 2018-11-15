@@ -1,14 +1,18 @@
 package lvergergsk.example.spring.mongo.entity
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
+@Document
 data class User(
     @Id
-    var id: String,
+    val id: String,
 
     @Field("firstname")
-    var firstName: String,
+    val firstName: String,
     @Field("lastname")
-    var lastName: String
+    val lastName: String,
+    @Field("tag")
+    val tag: List<String>
 )

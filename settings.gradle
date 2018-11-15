@@ -13,6 +13,7 @@ include 'validation'
 include 'micrometer'
 include 'webjars'
 include 'reactor'
+include 'okhttp'
 
 // Spring
 include 'spring-misc'
@@ -22,6 +23,7 @@ include 'spring-websocket'
 include 'spring-web'
 include 'spring-webflux'
 include 'spring-mongo'
+include 'spring-hibernate'
 
 project(':common').projectDir = "$rootDir/common" as File
 project(':common-test').projectDir = "$rootDir/common-test" as File
@@ -36,6 +38,7 @@ project(':validation').projectDir = "$rootDir/validation" as File
 project(':micrometer').projectDir = "$rootDir/micrometer" as File
 project(':webjars').projectDir = "$rootDir/webjars" as File
 project(':reactor').projectDir = "$rootDir/reactor" as File
+project(':okhttp').projectDir = "$rootDir/okhttp" as File
 
 // Spring
 project(':spring-misc').projectDir = "$rootDir/spring-misc" as File
@@ -45,4 +48,6 @@ project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
 project(':spring-web').projectDir = "$rootDir/spring-web" as File
 project(':spring-webflux').projectDir = "$rootDir/spring-webflux" as File
 project(':spring-mongo').projectDir = "$rootDir/spring-mongo" as File
+project(':spring-hibernate').projectDir = "$rootDir/spring-hibernate" as File
+
 

@@ -2,11 +2,13 @@
 
 db.user.save({
   "firstname": "Michael",
-  "lastname": "Zhang"
+  "lastname": "Zhang",
+  "tag": ["apple", "orange", "banana"]
 });
 
 db.user.save({
   "firstname": "Apple",
-  "lastname": "Orange"
+  "lastname": "Orange",
+  "tag": ["pineapple", "cherry"]
 });
 

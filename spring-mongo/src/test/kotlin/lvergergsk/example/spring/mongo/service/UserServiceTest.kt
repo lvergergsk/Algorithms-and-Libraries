@@ -22,6 +22,7 @@ class UserServiceTest : SpringApplicationTest() {
 
         Assertions.assertEquals("Michael", userEntity.firstName)
         Assertions.assertEquals("Zhang", userEntity.lastName)
+        Assertions.assertEquals(3, userEntity.tag.size)
     }
 
 }
