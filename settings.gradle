@@ -4,6 +4,7 @@ include 'common'
 include 'common-test'
 include 'kotlin'
 include 'leetcode'
+include 'codility'
 include 'examples'
 include 'reactivex'
 include 'retrofit'
@@ -14,6 +15,7 @@ include 'micrometer'
 include 'webjars'
 include 'reactor'
 include 'okhttp'
+include 'aspectj'
 
 // Spring
 include 'spring-misc'
@@ -24,30 +26,3 @@ include 'spring-web'
 include 'spring-webflux'
 include 'spring-mongo'
 include 'spring-hibernate'
-
-project(':common').projectDir = "$rootDir/common" as File
-project(':common-test').projectDir = "$rootDir/common-test" as File
-project(':kotlin').projectDir = "$rootDir/kotlin" as File
-project(':leetcode').projectDir = "$rootDir/leetcode" as File
-project(':examples').projectDir = "$rootDir/examples" as File
-project(':reactivex').projectDir = "$rootDir/reactivex" as File
-project(':retrofit').projectDir = "$rootDir/retrofit" as File
-project(':springfox').projectDir = "$rootDir/springfox" as File
-project(':testcontainers').projectDir = "$rootDir/testcontainers" as File
-project(':validation').projectDir = "$rootDir/validation" as File
-project(':micrometer').projectDir = "$rootDir/micrometer" as File
-project(':webjars').projectDir = "$rootDir/webjars" as File
-project(':reactor').projectDir = "$rootDir/reactor" as File
-project(':okhttp').projectDir = "$rootDir/okhttp" as File
-
-// Spring
-project(':spring-misc').projectDir = "$rootDir/spring-misc" as File
-project(':spring-mybatis').projectDir = "$rootDir/spring-mybatis" as File
-project(':spring-security').projectDir = "$rootDir/spring-security" as File
-project(':spring-websocket').projectDir = "$rootDir/spring-websocket" as File
-project(':spring-web').projectDir = "$rootDir/spring-web" as File
-project(':spring-webflux').projectDir = "$rootDir/spring-webflux" as File
-project(':spring-mongo').projectDir = "$rootDir/spring-mongo" as File
-project(':spring-hibernate').projectDir = "$rootDir/spring-hibernate" as File
-
-
